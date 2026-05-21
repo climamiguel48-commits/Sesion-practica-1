@@ -1,6 +1,6 @@
 ---
 title: "Fuentes de datos meteorológicos"
-subtitle: "Acceso y procesamiento desde RStudio"
+subtitle: "Sesión práctica 1"
 author: "Prof. Miguel Silva"
 format: 
   revealjs:
