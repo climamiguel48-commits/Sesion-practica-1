@@ -1,0 +1,135 @@
+[
+  {
+    "objectID": "index.html#contexto-el-desafío-en-venezuela",
+    "href": "index.html#contexto-el-desafío-en-venezuela",
+    "title": "Fuentes de datos meteorológicos",
+    "section": "Contexto: El desafío en Venezuela",
+    "text": "Contexto: El desafío en Venezuela\nProblema\n\nEscasez de estaciones meteorológicas activas\nDatos no disponibles o inconsistentes\nNecesidad de fuentes alternativas\n\nSolución\n\nDatos satelitales y reanálisis globales\nAcceso gratuito desde R\nCobertura completa de Venezuela"
+  },
+  {
+    "objectID": "index.html#fuentes-de-datos-climáticos-disponibles",
+    "href": "index.html#fuentes-de-datos-climáticos-disponibles",
+    "title": "Fuentes de datos meteorológicos",
+    "section": "Fuentes de datos climáticos disponibles",
+    "text": "Fuentes de datos climáticos disponibles\n\n\n\n\n\n\n\n\n\nFuente\nVariables\nResolución\nDesde R\n\n\n\n\nCHIRPS\nPrecipitación\nDiaria, 5km\nchirps\n\n\nERA5-Land\nTemp, Prec, Humedad, Viento\nHoraria/Diaria, 9km\necmwfr\n\n\nGPM-IMERG\nPrecipitación\n30 min, 10km\nnasapower\n\n\nPOWER\nRadiación, Temp, Humedad\nDiaria, 50km\nnasapower"
+  },
+  {
+    "objectID": "index.html#comparación-de-cobertura-en-venezuela",
+    "href": "index.html#comparación-de-cobertura-en-venezuela",
+    "title": "Fuentes de datos climáticos globales para Venezuela",
+    "section": "Comparación de cobertura en Venezuela",
+    "text": "Comparación de cobertura en Venezuela"
+  },
+  {
+    "objectID": "index.html#lugar-de-trabajo",
+    "href": "index.html#lugar-de-trabajo",
+    "title": "Fuentes de datos meteorológicos",
+    "section": "Lugar de trabajo",
+    "text": "Lugar de trabajo\nUsaremos como ejemplo algun sitio experimental:\nlat &lt;- -33.354\nlon &lt;- -70.691\naltitud &lt;- 490.87"
+  },
+  {
+    "objectID": "index.html#creamos-la-estructura-de-carpetas-donde-se-guardaran-los-resultados",
+    "href": "index.html#creamos-la-estructura-de-carpetas-donde-se-guardaran-los-resultados",
+    "title": "Fuentes de datos meteorológicos",
+    "section": "Creamos la estructura de carpetas donde se guardaran los resultados",
+    "text": "Creamos la estructura de carpetas donde se guardaran los resultados\ndir.create(\"datos\", showWarnings = FALSE)\ndir.create(\"figuras\", showWarnings = FALSE)\ndir.create(\"resultados\", showWarnings = FALSE)"
+  },
+  {
+    "objectID": "index.html#descargamos-datos-diarios-desde-nasa-power",
+    "href": "index.html#descargamos-datos-diarios-desde-nasa-power",
+    "title": "Fuentes de datos meteorológicos",
+    "section": "Descargamos datos diarios desde NASA POWER",
+    "text": "Descargamos datos diarios desde NASA POWER\ndatos_power &lt;- get_power(\n  community = \"AG\",\n  lonlat = c(lon, lat),\n  pars = c(\n    \"T2M\",\n    \"T2M_MAX\",\n    \"T2M_MIN\",\n    \"PRECTOTCORR\",\n    \"RH2M\",\n    \"WS2M\",\n    \"ALLSKY_SFC_SW_DWN\"\n  ),\n  dates = c(\"2024-01-01\", \"2024-12-31\"), #En este punto colocamos el intervalo de fechas que deseemos \n  temporal_api = \"DAILY\"\n)"
+  },
+  {
+    "objectID": "index.html#ordenamos-y-limpiamos-los-datos",
+    "href": "index.html#ordenamos-y-limpiamos-los-datos",
+    "title": "Fuentes de datos meteorológicos",
+    "section": "Ordenamos y limpiamos los datos",
+    "text": "Ordenamos y limpiamos los datos\ndatos_power_limpios &lt;- datos_power %&gt;%\n  mutate(\n    fecha = ymd(YYYYMMDD)\n  ) %&gt;%\n  select(\n    fecha,\n    T_media = T2M,\n    T_max = T2M_MAX,\n    T_min = T2M_MIN,\n    Precipitacion = PRECTOTCORR,\n    HR = RH2M,\n    Viento = WS2M,\n    Radiacion = ALLSKY_SFC_SW_DWN\n  )"
+  },
+  {
+    "objectID": "index.html#revisamos-los-datos",
+    "href": "index.html#revisamos-los-datos",
+    "title": "Fuentes de datos meteorológicos",
+    "section": "Revisamos los datos",
+    "text": "Revisamos los datos\nhead(datos_power_limpios)\n\nsummary(datos_power_limpios)"
+  },
+  {
+    "objectID": "index.html#graficamos-la-temperatura-media-diaria",
+    "href": "index.html#graficamos-la-temperatura-media-diaria",
+    "title": "Fuentes de datos climáticos globales para Venezuela",
+    "section": "Graficamos la temperatura media diaria",
+    "text": "Graficamos la temperatura media diaria\nggplot(datos_power_limpios, aes(x = fecha, y = T_media)) +\n  geom_line() +\n  labs(\n    title = \"Temperatura media diaria\",\n    subtitle = \"Pumahuida, Huechuraba, Santiago de Chile\",\n    x = \"Fecha\",\n    y = \"Temperatura media (°C)\"\n  ) +\n  theme_bw()"
+  },
+  {
+    "objectID": "index.html#lugar-de-trabajo-center",
+    "href": "index.html#lugar-de-trabajo-center",
+    "title": "Fuentes de datos climáticos globales para Venezuela",
+    "section": "Lugar de trabajo {center}",
+    "text": "Lugar de trabajo {center}\nUsaremos como ejemplo algun sitio experimental:\nlat &lt;- -33.354\nlon &lt;- -70.691\naltitud &lt;- 490.87"
+  },
+  {
+    "objectID": "index.html#instalamos-los-paquetes-necesarios",
+    "href": "index.html#instalamos-los-paquetes-necesarios",
+    "title": "Fuentes de datos meteorológicos",
+    "section": "Instalamos los paquetes necesarios",
+    "text": "Instalamos los paquetes necesarios\ninstall.packages(c(\n  \"tidyverse\",\n  \"lubridate\",\n  \"nasapower\",\n  \"terra\",\n  \"sf\",\n  \"ggplot2\",\n  \"openxlsx\"\n))"
+  },
+  {
+    "objectID": "index.html#cargamos-los-paquetes",
+    "href": "index.html#cargamos-los-paquetes",
+    "title": "Fuentes de datos meteorológicos",
+    "section": "Cargamos los paquetes",
+    "text": "Cargamos los paquetes\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(nasapower)\nlibrary(terra)\nlibrary(sf)\nlibrary(ggplot2)\nlibrary(openxlsx)"
+  },
+  {
+    "objectID": "index.html#graficamos-la-precipitación-diaria",
+    "href": "index.html#graficamos-la-precipitación-diaria",
+    "title": "Fuentes de datos climáticos globales para Venezuela",
+    "section": "Graficamos la precipitación diaria",
+    "text": "Graficamos la precipitación diaria\nggplot(datos_power_limpios, aes(x = fecha, y = Precipitacion)) +\n  geom_col() +\n  labs(\n    title = \"Precipitación diaria\",\n    subtitle = \"Pumahuida, Huechuraba, Santiago de Chile\",\n    x = \"Fecha\",\n    y = \"Precipitación (mm día⁻¹)\"\n  ) +\n  theme_bw()"
+  },
+  {
+    "objectID": "index.html#calculamos-un-resumen-mensual-de-los-datos",
+    "href": "index.html#calculamos-un-resumen-mensual-de-los-datos",
+    "title": "Fuentes de datos meteorológicos",
+    "section": "Calculamos un resumen mensual de los datos",
+    "text": "Calculamos un resumen mensual de los datos\nresumen_mensual &lt;- datos_power_limpios %&gt;%\n  mutate(\n    mes = floor_date(fecha, \"month\")\n  ) %&gt;%\n  group_by(mes) %&gt;%\n  summarise(\n    T_media = mean(T_media, na.rm = TRUE),\n    T_max = mean(T_max, na.rm = TRUE),\n    T_min = mean(T_min, na.rm = TRUE),\n    Precipitacion_total = sum(Precipitacion, na.rm = TRUE),\n    HR_media = mean(HR, na.rm = TRUE),\n    Viento_medio = mean(Viento, na.rm = TRUE),\n    Radiacion_media = mean(Radiacion, na.rm = TRUE)\n  ) %&gt;%\n  ungroup()"
+  },
+  {
+    "objectID": "index.html#guardamos-los-resultados",
+    "href": "index.html#guardamos-los-resultados",
+    "title": "Fuentes de datos meteorológicos",
+    "section": "Guardamos los resultados",
+    "text": "Guardamos los resultados\nwrite.xlsx(\n  datos_power_limpios,\n  \"resultados/datos_diarios_nasa_power.xlsx\"\n)\n\nwrite.xlsx(\n  resumen_mensual,\n  \"resultados/resumen_mensual_nasa_power.xlsx\"\n)"
+  },
+  {
+    "objectID": "index.html#ahora-es-tu-turno",
+    "href": "index.html#ahora-es-tu-turno",
+    "title": "Fuentes de datos meteorológicos",
+    "section": "Ahora es tu turno:",
+    "text": "Ahora es tu turno:\n\nDescarga los datos de 10 años de un lugar de interés particular.\nExporta los datos descargados a tu directorio de trabajo.\nRealice un informe de una página donde muestre las coordenadas usadas, la localidad, altitud y responda lo siguiente: Son útiles los datos de modelos atmosféricos?, discuta su respuesta.\nCargue este informe en el apartado correspondiente del campus virtual"
+  },
+  {
+    "objectID": "index.html#definimos-el-trabajo",
+    "href": "index.html#definimos-el-trabajo",
+    "title": "Fuentes de datos meteorológicos",
+    "section": "Definimos el trabajo",
+    "text": "Definimos el trabajo\nUsaremos como ejemplo algun sitio experimental:\nlat &lt;- -33.354\nlon &lt;- -70.691\naltitud &lt;- 490.87"
+  },
+  {
+    "objectID": "index.html#definimos-el-sitio-trabajo",
+    "href": "index.html#definimos-el-sitio-trabajo",
+    "title": "Fuentes de datos meteorológicos",
+    "section": "Definimos el sitio trabajo",
+    "text": "Definimos el sitio trabajo\nUsaremos como ejemplo algun sitio experimental:\nlat &lt;- -33.354\nlon &lt;- -70.691\naltitud &lt;- 490.87"
+  },
+  {
+    "objectID": "index.html#creamos-la-estructura-de-carpetas-donde-se-guardarán-los-resultados",
+    "href": "index.html#creamos-la-estructura-de-carpetas-donde-se-guardarán-los-resultados",
+    "title": "Fuentes de datos meteorológicos",
+    "section": "Creamos la estructura de carpetas donde se guardarán los resultados",
+    "text": "Creamos la estructura de carpetas donde se guardarán los resultados\ndir.create(\"datos\", showWarnings = FALSE)\ndir.create(\"figuras\", showWarnings = FALSE)\ndir.create(\"resultados\", showWarnings = FALSE)"
+  }
+]

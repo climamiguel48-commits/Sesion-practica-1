@@ -1,0 +1,198 @@
+---
+title: "Fuentes de datos meteorológicos"
+subtitle: "Acceso y procesamiento desde RStudio"
+author: "Prof. Miguel Silva"
+format: 
+  revealjs:
+    theme: dark
+    transition: slide
+    slide-number: true
+    highlight-style: github
+    logo: "https://www.r-project.org/logo/Rlogo.png"
+    footer: ""
+    chalkboard: true
+---
+
+## Contexto: El desafío en Venezuela
+
+### Problema
+
+- Escasez de estaciones meteorológicas activas
+- Datos no disponibles o inconsistentes
+- Necesidad de fuentes alternativas
+
+### Solución
+
+- Datos satelitales y reanálisis globales
+- Acceso gratuito desde R
+- Cobertura completa de Venezuela
+
+---
+
+## Fuentes de datos climáticos disponibles
+
+
+| Fuente | Variables | Resolución | Desde R |
+|--------|-----------|------------|---------|
+| **CHIRPS** | Precipitación | Diaria, 5km | `chirps` |
+| **ERA5-Land** | Temp, Prec, Humedad, Viento | Horaria/Diaria, 9km | `ecmwfr` |
+| **GPM-IMERG** | Precipitación | 30 min, 10km | `nasapower` |
+| **POWER** | Radiación, Temp, Humedad | Diaria, 50km | `nasapower` |
+
+---
+
+### Sesion práctica: Descarga y procesamiento de datos meteorológicos en R 
+
+**Objetivo general**
+
+Aprender a descargar y procesar datos meteorológicos usando R.
+
+**Importante**
+
+Para llevar a cabo la sesión práctica, inicie RStduio, seleccione el directorio
+de trabajo e importe el script "Descarga y procesamiento de datos". Seguidamente,
+vaya desplazando los slides de la sesión práctica para llevar a cabo cada uno 
+de los pasos.
+
+---
+
+## Definimos el sitio trabajo {.center}
+
+Usaremos como ejemplo algun sitio experimental:
+
+```r
+lat <- -33.354
+lon <- -70.691
+altitud <- 490.87
+```
+
+## Instalamos los paquetes necesarios {.center}
+
+```r
+install.packages(c(
+  "tidyverse",
+  "lubridate",
+  "nasapower",
+  "terra",
+  "sf",
+  "ggplot2",
+  "openxlsx"
+))
+```
+
+## Cargamos los paquetes {.center}
+
+```r
+library(tidyverse)
+library(lubridate)
+library(nasapower)
+library(terra)
+library(sf)
+library(ggplot2)
+library(openxlsx)
+```
+
+## Creamos la estructura de carpetas donde se guardarán los resultados {.center}
+
+```r
+dir.create("datos", showWarnings = FALSE)
+dir.create("figuras", showWarnings = FALSE)
+dir.create("resultados", showWarnings = FALSE)
+```
+
+## Descargamos datos diarios desde NASA POWER {.center}
+
+```r
+datos_power <- get_power(
+  community = "AG",
+  lonlat = c(lon, lat),
+  pars = c(
+    "T2M",
+    "T2M_MAX",
+    "T2M_MIN",
+    "PRECTOTCORR",
+    "RH2M",
+    "WS2M",
+    "ALLSKY_SFC_SW_DWN"
+  ),
+  dates = c("2024-01-01", "2024-12-31"), #En este punto colocamos el intervalo de fechas que deseemos 
+  temporal_api = "DAILY"
+)
+```
+
+## Ordenamos y limpiamos los datos {.center}
+
+```r
+datos_power_limpios <- datos_power %>%
+  mutate(
+    fecha = ymd(YYYYMMDD)
+  ) %>%
+  select(
+    fecha,
+    T_media = T2M,
+    T_max = T2M_MAX,
+    T_min = T2M_MIN,
+    Precipitacion = PRECTOTCORR,
+    HR = RH2M,
+    Viento = WS2M,
+    Radiacion = ALLSKY_SFC_SW_DWN
+  )
+```
+
+## Revisamos los datos {.center}
+
+```r
+head(datos_power_limpios)
+
+summary(datos_power_limpios)
+```
+
+## Calculamos un resumen mensual de los datos 
+
+```r
+resumen_mensual <- datos_power_limpios %>%
+  mutate(
+    mes = floor_date(fecha, "month")
+  ) %>%
+  group_by(mes) %>%
+  summarise(
+    T_media = mean(T_media, na.rm = TRUE),
+    T_max = mean(T_max, na.rm = TRUE),
+    T_min = mean(T_min, na.rm = TRUE),
+    Precipitacion_total = sum(Precipitacion, na.rm = TRUE),
+    HR_media = mean(HR, na.rm = TRUE),
+    Viento_medio = mean(Viento, na.rm = TRUE),
+    Radiacion_media = mean(Radiacion, na.rm = TRUE)
+  ) %>%
+  ungroup()
+```
+
+## Guardamos los resultados
+
+```r
+write.xlsx(
+  datos_power_limpios,
+  "resultados/datos_diarios_nasa_power.xlsx"
+)
+
+write.xlsx(
+  resumen_mensual,
+  "resultados/resumen_mensual_nasa_power.xlsx"
+)
+```
+
+## Ahora es tu turno:
+
+1. Descarga los datos de 10 años de un lugar de interés particular. 
+
+2. Exporta los datos descargados a tu directorio de trabajo.
+
+3. Realice un informe de una página donde muestre las coordenadas usadas,
+la localidad, altitud  y responda lo siguiente: Son útiles los datos de modelos atmosféricos?, discuta su respuesta. 
+
+4. Cargue este informe en el apartado correspondiente del campus virtual 
+
+
+
+
+
