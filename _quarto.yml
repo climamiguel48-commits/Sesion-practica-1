@@ -1,6 +1,7 @@
-pproject:
-  type: website
-  output-dir: docs
+
+project:
+  type: website 
+  output-dir: docs 
 
 about:
     template: solana       

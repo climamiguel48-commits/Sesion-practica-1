@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="index_files/libs/clipboard/clipboard.min.js"></script>
-<script src="index_files/libs/quarto-html/tabby.min.js"></script>
-<script src="index_files/libs/quarto-html/popper.min.js"></script>
-<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark-969ddfa49e00a70eb3423444dbc81f6c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-969ddfa49e00a70eb3423444dbc81f6c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Prof.&nbsp;Miguel Silva">
@@ -14,8 +14,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -95,13 +95,13 @@
     code span.vs { color: #9ecbff; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-327cab17de08e4a17faa7d61f48ae591.css">
-  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-327cab17de08e4a17faa7d61f48ae591.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -278,108 +278,108 @@ Prof.&nbsp;Miguel Silva
 <section id="definimos-el-sitio-trabajo" class="slide level2 center">
 <h2>Definimos el sitio trabajo</h2>
 <p>Usaremos como ejemplo algun sitio experimental:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>lat <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">33.354</span></span>
-<span id="cb1-2"><a href=""></a>lon <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">70.691</span></span>
-<span id="cb1-3"><a href=""></a>altitud <span class="ot">&lt;-</span> <span class="fl">490.87</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>lat <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">33.354</span> </span>
+<span id="cb1-2"><a></a>lon <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">70.691</span></span>
+<span id="cb1-3"><a></a>altitud <span class="ot">&lt;-</span> <span class="fl">490.87</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="instalamos-los-paquetes-necesarios" class="slide level2 center">
 <h2>Instalamos los paquetes necesarios</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">install.packages</span>(<span class="fu">c</span>(</span>
-<span id="cb2-2"><a href=""></a>  <span class="st">"tidyverse"</span>,</span>
-<span id="cb2-3"><a href=""></a>  <span class="st">"lubridate"</span>,</span>
-<span id="cb2-4"><a href=""></a>  <span class="st">"nasapower"</span>,</span>
-<span id="cb2-5"><a href=""></a>  <span class="st">"terra"</span>,</span>
-<span id="cb2-6"><a href=""></a>  <span class="st">"sf"</span>,</span>
-<span id="cb2-7"><a href=""></a>  <span class="st">"ggplot2"</span>,</span>
-<span id="cb2-8"><a href=""></a>  <span class="st">"openxlsx"</span></span>
-<span id="cb2-9"><a href=""></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">install.packages</span>(<span class="fu">c</span>(</span>
+<span id="cb2-2"><a></a>  <span class="st">"tidyverse"</span>,</span>
+<span id="cb2-3"><a></a>  <span class="st">"lubridate"</span>,</span>
+<span id="cb2-4"><a></a>  <span class="st">"nasapower"</span>,</span>
+<span id="cb2-5"><a></a>  <span class="st">"terra"</span>,</span>
+<span id="cb2-6"><a></a>  <span class="st">"sf"</span>,</span>
+<span id="cb2-7"><a></a>  <span class="st">"ggplot2"</span>,</span>
+<span id="cb2-8"><a></a>  <span class="st">"openxlsx"</span></span>
+<span id="cb2-9"><a></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="cargamos-los-paquetes" class="slide level2 center">
 <h2>Cargamos los paquetes</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-2"><a href=""></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb3-3"><a href=""></a><span class="fu">library</span>(nasapower)</span>
-<span id="cb3-4"><a href=""></a><span class="fu">library</span>(terra)</span>
-<span id="cb3-5"><a href=""></a><span class="fu">library</span>(sf)</span>
-<span id="cb3-6"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-7"><a href=""></a><span class="fu">library</span>(openxlsx)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb3-3"><a></a><span class="fu">library</span>(nasapower)</span>
+<span id="cb3-4"><a></a><span class="fu">library</span>(terra)</span>
+<span id="cb3-5"><a></a><span class="fu">library</span>(sf)</span>
+<span id="cb3-6"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-7"><a></a><span class="fu">library</span>(openxlsx)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="creamos-la-estructura-de-carpetas-donde-se-guardarán-los-resultados" class="slide level2 center">
 <h2>Creamos la estructura de carpetas donde se guardarán los resultados</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">dir.create</span>(<span class="st">"datos"</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb4-2"><a href=""></a><span class="fu">dir.create</span>(<span class="st">"figuras"</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb4-3"><a href=""></a><span class="fu">dir.create</span>(<span class="st">"resultados"</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">dir.create</span>(<span class="st">"datos"</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-2"><a></a><span class="fu">dir.create</span>(<span class="st">"figuras"</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-3"><a></a><span class="fu">dir.create</span>(<span class="st">"resultados"</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="descargamos-datos-diarios-desde-nasa-power" class="slide level2 center">
 <h2>Descargamos datos diarios desde NASA POWER</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>datos_power <span class="ot">&lt;-</span> <span class="fu">get_power</span>(</span>
-<span id="cb5-2"><a href=""></a>  <span class="at">community =</span> <span class="st">"AG"</span>,</span>
-<span id="cb5-3"><a href=""></a>  <span class="at">lonlat =</span> <span class="fu">c</span>(lon, lat),</span>
-<span id="cb5-4"><a href=""></a>  <span class="at">pars =</span> <span class="fu">c</span>(</span>
-<span id="cb5-5"><a href=""></a>    <span class="st">"T2M"</span>,</span>
-<span id="cb5-6"><a href=""></a>    <span class="st">"T2M_MAX"</span>,</span>
-<span id="cb5-7"><a href=""></a>    <span class="st">"T2M_MIN"</span>,</span>
-<span id="cb5-8"><a href=""></a>    <span class="st">"PRECTOTCORR"</span>,</span>
-<span id="cb5-9"><a href=""></a>    <span class="st">"RH2M"</span>,</span>
-<span id="cb5-10"><a href=""></a>    <span class="st">"WS2M"</span>,</span>
-<span id="cb5-11"><a href=""></a>    <span class="st">"ALLSKY_SFC_SW_DWN"</span></span>
-<span id="cb5-12"><a href=""></a>  ),</span>
-<span id="cb5-13"><a href=""></a>  <span class="at">dates =</span> <span class="fu">c</span>(<span class="st">"2024-01-01"</span>, <span class="st">"2024-12-31"</span>), <span class="co">#En este punto colocamos el intervalo de fechas que deseemos </span></span>
-<span id="cb5-14"><a href=""></a>  <span class="at">temporal_api =</span> <span class="st">"DAILY"</span></span>
-<span id="cb5-15"><a href=""></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>datos_power <span class="ot">&lt;-</span> <span class="fu">get_power</span>(</span>
+<span id="cb5-2"><a></a>  <span class="at">community =</span> <span class="st">"AG"</span>,</span>
+<span id="cb5-3"><a></a>  <span class="at">lonlat =</span> <span class="fu">c</span>(lon, lat),</span>
+<span id="cb5-4"><a></a>  <span class="at">pars =</span> <span class="fu">c</span>(</span>
+<span id="cb5-5"><a></a>    <span class="st">"T2M"</span>,</span>
+<span id="cb5-6"><a></a>    <span class="st">"T2M_MAX"</span>,</span>
+<span id="cb5-7"><a></a>    <span class="st">"T2M_MIN"</span>,</span>
+<span id="cb5-8"><a></a>    <span class="st">"PRECTOTCORR"</span>,</span>
+<span id="cb5-9"><a></a>    <span class="st">"RH2M"</span>,</span>
+<span id="cb5-10"><a></a>    <span class="st">"WS2M"</span>,</span>
+<span id="cb5-11"><a></a>    <span class="st">"ALLSKY_SFC_SW_DWN"</span></span>
+<span id="cb5-12"><a></a>  ),</span>
+<span id="cb5-13"><a></a>  <span class="at">dates =</span> <span class="fu">c</span>(<span class="st">"2024-01-01"</span>, <span class="st">"2024-12-31"</span>), <span class="co">#En este punto colocamos el intervalo de fechas que deseemos </span></span>
+<span id="cb5-14"><a></a>  <span class="at">temporal_api =</span> <span class="st">"DAILY"</span></span>
+<span id="cb5-15"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="ordenamos-y-limpiamos-los-datos" class="slide level2 center">
 <h2>Ordenamos y limpiamos los datos</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>datos_power_limpios <span class="ot">&lt;-</span> datos_power <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href=""></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-3"><a href=""></a>    <span class="at">fecha =</span> <span class="fu">ymd</span>(YYYYMMDD)</span>
-<span id="cb6-4"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb6-5"><a href=""></a>  <span class="fu">select</span>(</span>
-<span id="cb6-6"><a href=""></a>    fecha,</span>
-<span id="cb6-7"><a href=""></a>    <span class="at">T_media =</span> T2M,</span>
-<span id="cb6-8"><a href=""></a>    <span class="at">T_max =</span> T2M_MAX,</span>
-<span id="cb6-9"><a href=""></a>    <span class="at">T_min =</span> T2M_MIN,</span>
-<span id="cb6-10"><a href=""></a>    <span class="at">Precipitacion =</span> PRECTOTCORR,</span>
-<span id="cb6-11"><a href=""></a>    <span class="at">HR =</span> RH2M,</span>
-<span id="cb6-12"><a href=""></a>    <span class="at">Viento =</span> WS2M,</span>
-<span id="cb6-13"><a href=""></a>    <span class="at">Radiacion =</span> ALLSKY_SFC_SW_DWN</span>
-<span id="cb6-14"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>datos_power_limpios <span class="ot">&lt;-</span> datos_power <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-3"><a></a>    <span class="at">fecha =</span> <span class="fu">ymd</span>(YYYYMMDD)</span>
+<span id="cb6-4"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a></a>  <span class="fu">select</span>(</span>
+<span id="cb6-6"><a></a>    fecha,</span>
+<span id="cb6-7"><a></a>    <span class="at">T_media =</span> T2M,</span>
+<span id="cb6-8"><a></a>    <span class="at">T_max =</span> T2M_MAX,</span>
+<span id="cb6-9"><a></a>    <span class="at">T_min =</span> T2M_MIN,</span>
+<span id="cb6-10"><a></a>    <span class="at">Precipitacion =</span> PRECTOTCORR,</span>
+<span id="cb6-11"><a></a>    <span class="at">HR =</span> RH2M,</span>
+<span id="cb6-12"><a></a>    <span class="at">Viento =</span> WS2M,</span>
+<span id="cb6-13"><a></a>    <span class="at">Radiacion =</span> ALLSKY_SFC_SW_DWN</span>
+<span id="cb6-14"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="revisamos-los-datos" class="slide level2 center">
 <h2>Revisamos los datos</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">head</span>(datos_power_limpios)</span>
-<span id="cb7-2"><a href=""></a></span>
-<span id="cb7-3"><a href=""></a><span class="fu">summary</span>(datos_power_limpios)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">head</span>(datos_power_limpios)</span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a><span class="fu">summary</span>(datos_power_limpios)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="calculamos-un-resumen-mensual-de-los-datos" class="slide level2">
 <h2>Calculamos un resumen mensual de los datos</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>resumen_mensual <span class="ot">&lt;-</span> datos_power_limpios <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href=""></a>  <span class="fu">mutate</span>(</span>
-<span id="cb8-3"><a href=""></a>    <span class="at">mes =</span> <span class="fu">floor_date</span>(fecha, <span class="st">"month"</span>)</span>
-<span id="cb8-4"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb8-5"><a href=""></a>  <span class="fu">group_by</span>(mes) <span class="sc">%&gt;%</span></span>
-<span id="cb8-6"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb8-7"><a href=""></a>    <span class="at">T_media =</span> <span class="fu">mean</span>(T_media, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb8-8"><a href=""></a>    <span class="at">T_max =</span> <span class="fu">mean</span>(T_max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb8-9"><a href=""></a>    <span class="at">T_min =</span> <span class="fu">mean</span>(T_min, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb8-10"><a href=""></a>    <span class="at">Precipitacion_total =</span> <span class="fu">sum</span>(Precipitacion, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb8-11"><a href=""></a>    <span class="at">HR_media =</span> <span class="fu">mean</span>(HR, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb8-12"><a href=""></a>    <span class="at">Viento_medio =</span> <span class="fu">mean</span>(Viento, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb8-13"><a href=""></a>    <span class="at">Radiacion_media =</span> <span class="fu">mean</span>(Radiacion, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-14"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb8-15"><a href=""></a>  <span class="fu">ungroup</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>resumen_mensual <span class="ot">&lt;-</span> datos_power_limpios <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-3"><a></a>    <span class="at">mes =</span> <span class="fu">floor_date</span>(fecha, <span class="st">"month"</span>)</span>
+<span id="cb8-4"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a></a>  <span class="fu">group_by</span>(mes) <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb8-7"><a></a>    <span class="at">T_media =</span> <span class="fu">mean</span>(T_media, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-8"><a></a>    <span class="at">T_max =</span> <span class="fu">mean</span>(T_max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-9"><a></a>    <span class="at">T_min =</span> <span class="fu">mean</span>(T_min, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-10"><a></a>    <span class="at">Precipitacion_total =</span> <span class="fu">sum</span>(Precipitacion, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-11"><a></a>    <span class="at">HR_media =</span> <span class="fu">mean</span>(HR, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-12"><a></a>    <span class="at">Viento_medio =</span> <span class="fu">mean</span>(Viento, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-13"><a></a>    <span class="at">Radiacion_media =</span> <span class="fu">mean</span>(Radiacion, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-14"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb8-15"><a></a>  <span class="fu">ungroup</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="guardamos-los-resultados" class="slide level2">
 <h2>Guardamos los resultados</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">write.xlsx</span>(</span>
-<span id="cb9-2"><a href=""></a>  datos_power_limpios,</span>
-<span id="cb9-3"><a href=""></a>  <span class="st">"resultados/datos_diarios_nasa_power.xlsx"</span></span>
-<span id="cb9-4"><a href=""></a>)</span>
-<span id="cb9-5"><a href=""></a></span>
-<span id="cb9-6"><a href=""></a><span class="fu">write.xlsx</span>(</span>
-<span id="cb9-7"><a href=""></a>  resumen_mensual,</span>
-<span id="cb9-8"><a href=""></a>  <span class="st">"resultados/resumen_mensual_nasa_power.xlsx"</span></span>
-<span id="cb9-9"><a href=""></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">write.xlsx</span>(</span>
+<span id="cb9-2"><a></a>  datos_power_limpios,</span>
+<span id="cb9-3"><a></a>  <span class="st">"resultados/datos_diarios_nasa_power.xlsx"</span></span>
+<span id="cb9-4"><a></a>)</span>
+<span id="cb9-5"><a></a></span>
+<span id="cb9-6"><a></a><span class="fu">write.xlsx</span>(</span>
+<span id="cb9-7"><a></a>  resumen_mensual,</span>
+<span id="cb9-8"><a></a>  <span class="st">"resultados/resumen_mensual_nasa_power.xlsx"</span></span>
+<span id="cb9-9"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="ahora-es-tu-turno" class="slide level2">
 <h2>Ahora es tu turno:</h2>
@@ -389,6 +389,7 @@ Prof.&nbsp;Miguel Silva
 <li><p>Realice un informe de una página donde muestre las coordenadas usadas, la localidad, altitud y responda lo siguiente: Son útiles los datos de modelos atmosféricos?, discuta su respuesta.</p></li>
 <li><p>Cargue este informe en el apartado correspondiente del campus virtual</p></li>
 </ol>
+
 
 </section>
     </div>
@@ -400,20 +401,20 @@ Prof.&nbsp;Miguel Silva
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="index_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

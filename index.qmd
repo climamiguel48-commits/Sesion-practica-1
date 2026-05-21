@@ -1,7 +1,7 @@
 ---
 title: "Fuentes de datos meteorológicos"
 subtitle: "Sesión práctica 1"
-author: "Prof. Miguel Silva"
+author: "Prof. Miguel Silva" 
 format: 
   revealjs:
     theme: dark
@@ -58,10 +58,10 @@ de los pasos.
 
 ## Definimos el sitio trabajo {.center}
 
-Usaremos como ejemplo algun sitio experimental:
+Usaremos como ejemplo algun sitio experimental: 
 
 ```r
-lat <- -33.354
+lat <- -33.354 
 lon <- -70.691
 altitud <- 490.87
 ```
